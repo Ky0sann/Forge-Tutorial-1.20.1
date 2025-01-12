@@ -1,6 +1,7 @@
 package net.mathis.tutorialmod.item;
 
 import net.mathis.tutorialmod.TutorialMod;
+import net.mathis.tutorialmod.block.ModBlocks;
 import net.mathis.tutorialmod.item.custom.FuelItem;
 import net.mathis.tutorialmod.item.custom.MetalDetectorItem;
 import net.mathis.tutorialmod.item.custom.ModArmorItem;
@@ -55,6 +56,9 @@ public class ModItems {
             () -> new ArmorItem(ModArmorMaterials.SAPPHIRE, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> SAPPHIRE_BOOTS = ITEMS.register("sapphire_boots",
             () -> new ArmorItem(ModArmorMaterials.SAPPHIRE, ArmorItem.Type.BOOTS, new Item.Properties()));
+
+    public static final RegistryObject<Item> STRAWBERRY_SEEDS = ITEMS.register("strawberry_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.STRAWBERRY_CROP.get(), new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
