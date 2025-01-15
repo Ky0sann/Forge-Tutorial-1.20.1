@@ -2,6 +2,7 @@ package net.mathis.tutorialmod.datagen;
 
 import net.mathis.tutorialmod.TutorialMod;
 import net.mathis.tutorialmod.block.ModBlocks;
+import net.mathis.tutorialmod.block.custom.CornCropBlock;
 import net.mathis.tutorialmod.block.custom.StrawberryCropBlock;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -46,6 +47,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         makeStrawberryCrop((CropBlock) ModBlocks.STRAWBERRY_CROP.get(), "strawberry_stage", "strawberry_stage");
 
+        makeCornCrop(((CropBlock) ModBlocks.CORN_CROP.get()), "corn_stage_", "corn_stage_");
     }
 
     public void makeStrawberryCrop(CropBlock block, String modelName, String textureName) {
@@ -59,6 +61,20 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 new ResourceLocation(TutorialMod.MOD_ID, "block/" + textureName + state.getValue(((StrawberryCropBlock) block).getAgeProperty()))).renderType("cutout"));
 
         return  models;
+    }
+
+    public void makeCornCrop(CropBlock block, String modelName, String textureName) {
+        Function<BlockState, ConfiguredModel[]> function = state -> cornStates(state, block, modelName, textureName);
+
+        getVariantBuilder(block).forAllStates(function);
+    }
+
+    private ConfiguredModel[] cornStates(BlockState state, CropBlock block, String modelName, String textureName) {
+        ConfiguredModel[] models = new ConfiguredModel[1];
+        models[0] = new ConfiguredModel(models().crop(modelName + state.getValue(((CornCropBlock) block).getAgeProperty()),
+                new ResourceLocation(TutorialMod.MOD_ID, "block/" + textureName + state.getValue(((CornCropBlock) block).getAgeProperty()))).renderType("cutout"));
+
+        return models;
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
