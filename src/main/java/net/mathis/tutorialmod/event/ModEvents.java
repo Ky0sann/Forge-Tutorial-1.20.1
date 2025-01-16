@@ -2,7 +2,9 @@ package net.mathis.tutorialmod.event;
 
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.mathis.tutorialmod.TutorialMod;
+import net.mathis.tutorialmod.block.ModBlocks;
 import net.mathis.tutorialmod.item.ModItems;
+import net.mathis.tutorialmod.villager.ModVillagers;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.EnchantedBookItem;
@@ -53,6 +55,23 @@ public class ModEvents {
                     new ItemStack(Items.EMERALD, 32),
                     enchantedBook,
                     2, 8, 0.02f));
+
+        }
+
+        if(event.getType() == ModVillagers.SOUND_MASTER.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+
+            // Level 1
+            trades.get(1).add((pTrader, pRandom) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 16),
+                    new ItemStack(ModBlocks.SOUND_BLOCK.get(), 1),
+                    2, 8, 0.02f));
+
+            // Level 2
+            trades.get(2).add((pTrader, pRandom) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 6),
+                    new ItemStack(ModBlocks.SAPPHIRE_ORE.get(), 2),
+                    5, 12, 0.02f));
 
         }
     }
