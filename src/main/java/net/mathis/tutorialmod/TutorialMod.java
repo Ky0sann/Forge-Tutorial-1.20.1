@@ -2,11 +2,14 @@ package net.mathis.tutorialmod;
 
 import com.mojang.logging.LogUtils;
 import net.mathis.tutorialmod.block.ModBlocks;
+import net.mathis.tutorialmod.entity.ModEntities;
+import net.mathis.tutorialmod.entity.client.RhinoRenderer;
 import net.mathis.tutorialmod.item.ModCreativeModTabs;
 import net.mathis.tutorialmod.item.ModItems;
 import net.mathis.tutorialmod.loot.ModLootModifiers;
 import net.mathis.tutorialmod.sound.ModSounds;
 import net.mathis.tutorialmod.villager.ModVillagers;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
@@ -41,6 +44,7 @@ public class TutorialMod {
         ModVillagers.register(modEventBus);
 
         ModSounds.register(modEventBus);
+        ModEntities.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::addCreative);
@@ -73,7 +77,7 @@ public class TutorialMod {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            // Client setup logic
+            EntityRenderers.register(ModEntities.RHINO.get(), RhinoRenderer::new);
         }
     }
 }
