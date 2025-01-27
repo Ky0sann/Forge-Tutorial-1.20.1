@@ -8,6 +8,7 @@ import net.mathis.tutorialmod.entity.client.RhinoRenderer;
 import net.mathis.tutorialmod.item.ModCreativeModTabs;
 import net.mathis.tutorialmod.item.ModItems;
 import net.mathis.tutorialmod.loot.ModLootModifiers;
+import net.mathis.tutorialmod.recipe.ModRecipes;
 import net.mathis.tutorialmod.screen.GemPolishingStationScreen;
 import net.mathis.tutorialmod.screen.ModMenuTypes;
 import net.mathis.tutorialmod.sound.ModSounds;
@@ -52,6 +53,8 @@ public class TutorialMod {
 
         ModBlockEntities.register(modEventBus);
         ModMenuTypes.register(modEventBus);
+
+        ModRecipes.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::addCreative);
