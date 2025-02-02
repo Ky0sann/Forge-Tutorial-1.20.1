@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.mathis.tutorialmod.block.ModBlocks;
 import net.mathis.tutorialmod.block.entity.ModBlockEntities;
 import net.mathis.tutorialmod.entity.ModEntities;
+import net.mathis.tutorialmod.entity.client.ModBoatRenderer;
 import net.mathis.tutorialmod.entity.client.RhinoRenderer;
 import net.mathis.tutorialmod.item.ModCreativeModTabs;
 import net.mathis.tutorialmod.item.ModItems;
@@ -92,6 +93,9 @@ public class TutorialMod {
             Sheets.addWoodType(ModWoodTypes.PINE);
 
             EntityRenderers.register(ModEntities.RHINO.get(), RhinoRenderer::new);
+
+            EntityRenderers.register(ModEntities.MOD_BOAT.get(), pContext -> new ModBoatRenderer(pContext, false));
+            EntityRenderers.register(ModEntities.MOD_CHEST_BOAT.get(), pContext -> new ModBoatRenderer(pContext, true));
 
             MenuScreens.register(ModMenuTypes.GEM_POLISHING_MENU.get(), GemPolishingStationScreen::new);
         }
