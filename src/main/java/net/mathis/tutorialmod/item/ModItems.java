@@ -4,10 +4,7 @@ import net.mathis.tutorialmod.TutorialMod;
 import net.mathis.tutorialmod.block.ModBlocks;
 import net.mathis.tutorialmod.entity.ModEntities;
 import net.mathis.tutorialmod.entity.custom.ModBoatEntity;
-import net.mathis.tutorialmod.item.custom.FuelItem;
-import net.mathis.tutorialmod.item.custom.MetalDetectorItem;
-import net.mathis.tutorialmod.item.custom.ModArmorItem;
-import net.mathis.tutorialmod.item.custom.ModBoatItem;
+import net.mathis.tutorialmod.item.custom.*;
 import net.mathis.tutorialmod.sound.ModSounds;
 import net.minecraft.world.item.*;
 import net.minecraftforge.common.ForgeSpawnEggItem;
@@ -88,6 +85,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> PINE_CHEST_BOAT = ITEMS.register("pine_chest_boat",
             () -> new ModBoatItem(true, ModBoatEntity.Type.PINE, new Item.Properties()));
+
+    public static final RegistryObject<Item> DICE = ITEMS.register("dice",
+            () -> new DiceItem(new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
