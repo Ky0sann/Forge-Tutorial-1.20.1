@@ -15,6 +15,7 @@ import net.mathis.tutorialmod.screen.ModMenuTypes;
 import net.mathis.tutorialmod.sound.ModSounds;
 import net.mathis.tutorialmod.util.ModWoodTypes;
 import net.mathis.tutorialmod.villager.ModVillagers;
+import net.mathis.tutorialmod.worldgen.tree.ModFoliagePlacers;
 import net.mathis.tutorialmod.worldgen.tree.ModTrunkPlacerTypes;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.Sheets;
@@ -61,6 +62,8 @@ public class TutorialMod {
 
         ModRecipes.register(modEventBus);
         ModTrunkPlacerTypes.register(modEventBus);
+
+        ModFoliagePlacers.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::addCreative);
