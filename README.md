@@ -49,6 +49,10 @@ Download the file, unzip it and open it with a Java IDE such as IntelliJ IDEA (r
 - Trunk Placers
 - Foliage Placers
 
+## 📜 For more details
+
+Don't hesitate to have a look at the various commits and the code for a particular feature if you're interested. Note that everything in the ‘generated’ folder has been generated automatically using datagen code, so there's no need to create .json files manually!
+
 ## 🎮 Importance of the game version
 
 If you wish to use this mod on a version other than 1.20.1, changes to the code will be necessary as some functions have been removed or replaced in other versions of the game. 
@@ -70,8 +74,3 @@ Enjoy the mod and thanks for checking it out! 🎮
 You are free to reuse my work without providing credit to me. However, ensure to **CREDIT 'Modding by Kaupenjoe'** as a courtesy for his valuable guidance.  
 
 Thank you for respecting the work of others !
-
-
-
-
-
